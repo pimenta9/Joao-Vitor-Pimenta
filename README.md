@@ -1,1 +1,1 @@
-# Joao-Vitor-Pimenta
+- [X] Função Raiz Quadrada
