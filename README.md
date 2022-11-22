@@ -1,2 +1,3 @@
 - [X] Função Raiz Quadrada
-- [ ] ...
+- [ ] Selection Sort
+- [ ] Binary Search
