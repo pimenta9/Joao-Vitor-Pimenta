@@ -1,0 +1,71 @@
+#include <stdio.h>
+
+double raiz(int n);
+
+int power(int x, int p);
+
+int main(){
+
+    printf("\nDigite um número inteiro entre 0 e 225: ");
+
+    int n;
+
+    do
+    {
+        scanf("%d", &n);
+
+        if(n < 0 || n > 255)
+            printf("Digite um número válido!\n");
+
+        //printf("\n");
+
+    } while(n < 0 || n > 255);
+
+    printf("A raiz quadrada de %d é %.8lf\n\n", n, raiz(n));
+
+    return 0;
+}
+
+double raiz(int n){
+
+    int i;
+    for(i = 0; i <= 15; i++){
+
+        if(i*i == n) return i;
+
+        if(i*i > n) break;
+    }
+
+    double min = i-1;
+
+    int casa_decimal = 1;
+
+    while(casa_decimal <= 8){
+
+        double grandeza = 1/(double)power(10,casa_decimal);
+
+        for(i = 1; i <= 9; i++){
+
+            min = min + grandeza;
+
+            if(min*min > n)
+            {
+                min = min - grandeza;
+                break;
+            }
+        }
+
+        casa_decimal++;
+    }
+
+    return min;
+}
+
+int power(int x, int p)
+{
+
+    if(p == 1) return x;
+    else
+        return x*power(x, p-1);
+
+}
