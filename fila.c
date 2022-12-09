@@ -38,6 +38,27 @@ void inserir_na_fila(No * *fila, int num)
     }
 }
 
+void mostrar_fila(No *fila)
+{
+    int contador = 1;
+    
+    No *aux;
+    
+    aux = fila;
+    
+    printf("%dº Nó = %d\n", contador, aux->data);
+    contador++;
+    
+    while(aux->proximo != NULL)
+    {
+        aux = aux->proximo;
+        
+        printf("%dº Nó = %d\n", contador, aux->data);
+        contador++;
+    }
+    printf("\n");
+}
+
 int main(){
     
     No *fila = NULL;
