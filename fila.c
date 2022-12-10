@@ -18,7 +18,7 @@ void inserir_na_fila(No * *fila, int num)
     
         if(*fila == NULL)
         {
-            *fila = novo;
+            (*fila) = novo;
         }
         else
         {
@@ -59,6 +59,13 @@ void mostrar_fila(No *fila)
     printf("\n");
 }
 
+No* remover_da_fila(No *fila)
+{
+    fila = fila->proximo;
+    
+    return fila;
+}
+
 int main(){
     
     No *fila = NULL;
@@ -69,6 +76,15 @@ int main(){
     inserir_na_fila(&fila, 0);
     inserir_na_fila(&fila, -15);
     
+    mostrar_fila(fila);
+    
+    fila = remover_da_fila(fila);
+    mostrar_fila(fila);
+    
+    fila = remover_da_fila(fila);
+    mostrar_fila(fila);
+    
+    fila = remover_da_fila(fila);
     mostrar_fila(fila);
     
     return 0;
