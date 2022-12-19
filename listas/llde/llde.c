@@ -23,7 +23,7 @@ void inserir_no_inicio(int valor, CELULA **lista, NoDescritor *nod)
     // Se não estiver vazia,
     else
     {
-        novo->proximo = nod->primeira;
+        novo->proximo = (*lista);
 
         (*lista) = novo;
 
@@ -36,20 +36,19 @@ void mostra_lista(CELULA **lista)
 {
     CELULA *aux = (*lista);
 
-    if ((*lista) == NULL)
+    if (aux == NULL)
         printf("        A lista está vazia.\n");
 
     else
     {
         printf("        chave 1 = %d\n", aux->conteudo);
 
+        aux = aux->proximo;
         while (aux != NULL)
         {
-            if (aux->chave != 1)
-                printf("        chave %d = %d\n", aux->chave, aux->conteudo);
+            printf("        chave %d = %d\n", aux->chave, aux->conteudo);
 
-            if (aux->proximo != NULL) aux = aux->proximo;
-            else aux = NULL;
+            aux = aux->proximo;
         }
     }
 }
