@@ -41,7 +41,7 @@ int main()
             printf("\n Digite o valor a ser inserido no início da lista: ");
             scanf("%d", &valor);
             inserir_no_inicio(valor, &lista, no_descritor);
-            printf(" O valor %d foi inserido no início da lista.\n", valor);
+            printf(" O valor %d foi inserido no início da lista.\n\n", valor);
             break;
         }
 
@@ -91,7 +91,9 @@ int main()
         {
             printf("\n ELEMENTOS da lista: \n");
             mostra_lista(&lista);
+            printf("\n");
             break;
+            //printf("\n\n%d\n\n", (lista->proximo)->conteudo);
         }
 
         case 0:
