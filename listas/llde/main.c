@@ -81,12 +81,13 @@ int main()
             scanf("%d", &chave);
             remover_por_chave(chave, lista, no_descritor);
             }
-
+        */
         case 7:
             {
             printf("\n TAMANHO da lista = %d\n", no_descritor->tamanho);
+            break;
             }
-        */
+
         case 8:
         {
             printf("\n ELEMENTOS da lista: \n");
