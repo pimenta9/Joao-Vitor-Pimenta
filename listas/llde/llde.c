@@ -5,31 +5,38 @@
 void inserir_no_inicio(int valor, CELULA **lista, NoDescritor *nod)
 {
     CELULA *novo = (CELULA*)malloc(sizeof(CELULA));
-    novo->anterior = NULL;
-    novo->chave = 1;
-    novo->conteudo = valor;
-    //novo->proximo = NULL;
 
-    // Se a lista estiver vazia,
-    if ((*lista) == NULL)
+    if(novo)
     {
-        novo->proximo = NULL;
-        (*lista) = novo;
+        novo->anterior = NULL;
+        novo->chave = 1;
+        novo->conteudo = valor;
+        //novo->proximo = NULL;
 
-        nod->primeira = novo;
-        nod->tamanho = 1;
-        nod->ultima = novo;
+        // Se a lista estiver vazia,
+        if ((*lista) == NULL)
+        {
+            novo->proximo = NULL;
+            (*lista) = novo;
+
+            nod->primeira = novo;
+            nod->ultima = novo;
+        }
+        // Se não estiver vazia,
+        else
+        {
+            novo->proximo = (*lista);
+
+            (*lista) = novo;
+
+            // Mudar a chave dos elementos que foram passados a frente
+            //organiza_chaves(*lista);
+        }
+        nod->tamanho++;
     }
-    // Se não estiver vazia,
     else
-    {
-        novo->proximo = (*lista);
-
-        (*lista) = novo;
-
-        // Mudar a chave dos elementos que foram passados a frente
-        //organiza_chaves(*lista);
-    }
+        printf("ERRO ao alocar memória.");
+        return;
 }
 
 void mostra_lista(CELULA **lista)
