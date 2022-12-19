@@ -17,19 +17,19 @@ int main()
     int valor;
     int chave;
 
-    while(1)
+    while (1)
     {
         printf("\n============ MENU ============\n"
-            "-> Escolha uma das opções abaixo:\n"
-            "   1 - Inserir no início da lista\n"
-            "   2 - Inserir no fim da lista\n"
-            "   3 - Inserir em ordem por chave\n"
-            "   4 - Remover do início da lista\n"
-            "   5 - Remover do fim da lista\n"
-            "   6 - Remover a célula com uma certa chave da lista\n"
-            "   7 - Mostrar o tamanho da lista\n"
-            "   8 - Mostrar os elementos da lista\n"
-            "   0 - Encerrar o programa\n\n");
+               "-> Escolha uma das opções abaixo:\n"
+               "   1 - Inserir no início da lista\n"
+               "   2 - Inserir no fim da lista\n"
+               "   3 - Inserir em ordem por chave\n"
+               "   4 - Remover do início da lista\n"
+               "   5 - Remover do fim da lista\n"
+               "   6 - Remover a célula com uma certa chave da lista\n"
+               "   7 - Mostrar o tamanho da lista\n"
+               "   8 - Mostrar os elementos da lista\n"
+               "   0 - Encerrar o programa\n\n");
 
         printf("OPÇÃO: ");
         scanf("%d", &opcao);
@@ -68,11 +68,13 @@ int main()
         case 4:
             {
             remover_do_inicio(lista, no_descritor);
+            break;
             }
 
         case 5:
             {
             remover_do_fim(lista, no_descritor);
+            break;
             }
 
         case 6:
@@ -80,13 +82,14 @@ int main()
             printf("\nCHAVE a ser removida: ");
             scanf("%d", &chave);
             remover_por_chave(chave, lista, no_descritor);
+            break;
             }
         */
         case 7:
-            {
+        {
             printf("\n TAMANHO da lista = %d\n", no_descritor->tamanho);
             break;
-            }
+        }
 
         case 8:
         {
@@ -94,7 +97,7 @@ int main()
             mostra_lista(&lista);
             printf("\n");
             break;
-            //printf("\n\n%d\n\n", (lista->proximo)->conteudo);
+            // printf("\n\n%d\n\n", (lista->proximo)->conteudo);
         }
 
         case 0:
