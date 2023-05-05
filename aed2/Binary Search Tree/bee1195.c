@@ -49,7 +49,7 @@ int main()
         printf("\nPost:");
         BST_postorder_print(&root);
         
-        printf("\n");
+        printf("\n\n");
 
         // BST_free(root);
         cases++;
