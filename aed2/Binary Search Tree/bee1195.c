@@ -17,8 +17,6 @@ void BST_inorder_print(Root** node);
 
 void BST_postorder_print(Root** node);
 
-//void BST_right_print(Root* root); (APENAS UM TESTE!)
-
 int main()
 {
     int n, c, number;
