@@ -43,12 +43,15 @@ int main()
             n--;
         }
 
-        //BST_right_print(root);
-
         printf("Case %d:\n", cases);
-        printf("Pre.:", BST_preorder_print(&root));
-        printf("In..:", BST_inorder_print(&root));
-        printf("Post:", BST_postorder_print(&root));
+        printf("Pre.:");
+        BST_preorder_print(&root);
+        printf("\nIn..:");
+        BST_inorder_print(&root);
+        printf("\nPost:");
+        BST_postorder_print(&root);
+        
+        printf("\n");
 
         // BST_free(root);
         cases++;
@@ -83,19 +86,6 @@ void BST_insert(Root** root, int number)
     }
 }
 
-// APENAS UM TESTE! APAGAR!!!!!
-void BST_right_print(Root* root)
-{
-    Root* aux = root;
-
-    while (aux != NULL)
-    {
-        printf("%d ", aux->data);
-        aux = aux->left;
-    }
-    printf("\n");
-}
-
 void BST_preorder_print(Root** node)
 {
     if((*node) == NULL)
@@ -107,6 +97,38 @@ void BST_preorder_print(Root** node)
         BST_preorder_print(&((*node)->left));
 
         BST_preorder_print(&((*node)->right));
+
+        return;
+    }
+}
+
+void BST_inorder_print(Root** node)
+{
+    if((*node) == NULL)
+        return;
+    else
+    {
+        BST_inorder_print(&((*node)->left));
+        
+        printf(" %d", (*node)->data);
+
+        BST_inorder_print(&((*node)->right));
+
+        return;
+    }
+}
+
+void BST_postorder_print(Root** node)
+{
+    if((*node) == NULL)
+        return;
+    else
+    {
+        BST_postorder_print(&((*node)->left));
+
+        BST_postorder_print(&((*node)->right));
+        
+        printf(" %d", (*node)->data);
 
         return;
     }
