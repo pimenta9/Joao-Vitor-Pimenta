@@ -1,6 +1,6 @@
 /*
 Inserts a number to the Binary Search Tree.
-root -> the adress of the pointer to the BST root
+root -> the adress of the pointer to the BST's root
 number -> the number to be inserted in the BST
 */
 void BST_insert(Root** root, int number)
