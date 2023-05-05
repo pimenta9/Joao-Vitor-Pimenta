@@ -1,6 +1,11 @@
+/*
+Inserts a number to the Binary Search Tree.
+root -> the adress of the pointer to the BST root
+number -> the number to be inserted in the BST
+*/
 void BST_insert(Root** root, int number)
 {
-    // If we get to an empty node we insert the number
+    // If we get to an empty node we insert the number, creating that node
     if((*root) == NULL)
     {
         (*root) = (Root*) malloc(sizeof(Root));
