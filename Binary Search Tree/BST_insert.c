@@ -1,3 +1,11 @@
+typedef struct Root
+{
+    int data;
+    struct Root *right;
+    struct Root *left;
+
+} Root;
+
 /*
 Inserts a number to the Binary Search Tree.
 root -> the adress of the pointer to the BST's root
