@@ -17,12 +17,22 @@ Root* BST_delete(Root *root, int num)
     // if the number we want is less than the current
     // node's data, we move on to the left subtree
     if (num < root->data)
-        root->left = BST_delete(root->left, num);
+    {
+        if (root->left != NULL)
+            root->left = BST_delete(root->left, num);
+        else
+            return root;
+    }
 
     // if the number we want is greater than the current
     // node's data, we move on to the right subtree
     else if (num > root->data)
-        root->right = BST_delete(root->right, num);
+    {
+        if (root->right != NULL)
+            root->right = BST_delete(root->right, num);
+        else
+            return root;
+    }
 
     // if we get to the node we want to delete we check if
     // it is a leaf (case 1), if it has only right or left child (case 2)
