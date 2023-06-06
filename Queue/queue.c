@@ -33,15 +33,7 @@ Queue* queue_push(Queue *queue, int num)
 
 Queue* queue_pop(Queue *queue)
 {
-    if (queue->next == NULL)
-    {
-        free(queue);
-        return NULL;
-    }
-    else
-    {
         Queue* aux = queue->next;
         free(queue);
         return aux;
-    }
 }
