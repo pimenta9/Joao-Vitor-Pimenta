@@ -11,6 +11,13 @@ int* create_minHeap()
     return heap;
 }
 
+void swap(int* heap, int i, int j)
+{
+    heap[i] = heap[i] + heap[j];
+    heap[j] = heap[i] - heap[j];
+    heap[i] = heap[i] - heap[j];
+}
+
 /**
  * @brief inserts the element x to the heap
  * 
@@ -38,13 +45,6 @@ int* minHeap_insert(int* heap, int heapSize, int x)
             return heap;
     }
     return heap;
-}
-
-void swap(int* heap, int i, int j)
-{
-    heap[i] = heap[i] + heap[j];
-    heap[j] = heap[i] - heap[j];
-    heap[i] = heap[i] - heap[j];
 }
 
 /**
