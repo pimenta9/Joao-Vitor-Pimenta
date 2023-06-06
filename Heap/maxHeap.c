@@ -46,27 +46,35 @@ int* maxHeap_delete(int* heap, int heapSize)
     heap[heapSize] = temp;
 
     heap = (int*) realloc(heap, heapSize*sizeof(int));
+    heapSize = heapSize - 1;
 
     int i = 1;
-    while (i <= heapSize/2)
+    while (i*2 <= (heapSize))
     {
         if ((i*2 + 1) <= heapSize)
         {
             if (heap[i] < heap[i*2] || heap[i] < heap[i*2 + 1])
             {
                 if (heap[i*2] > heap[i*2 + 1])
+                {
                     swap(heap, i, (i*2));
+                    i = (i*2);
+                }
                 else
+                {
                     swap(heap, i, (i*2 + 1));
+                    i = (i*2 + 1);
+                }
             }
             else
                 return heap;
         }
         else
-        {
             if (heap[i] < heap[i*2])
-                swap(heap, i, i*2);
-        }
+                swap(heap, i, (i*2));
+            else
+                return heap;
     }
+
     return heap;
 }
