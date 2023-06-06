@@ -11,6 +11,14 @@ int* create_minHeap()
     return heap;
 }
 
+/**
+ * @brief inserts the element x to the heap
+ * 
+ * @param heap adress to the heap
+ * @param heapSize number of elements in the heap
+ * @param x element to be inserted
+ * @return int* 
+ */
 int* minHeap_insert(int* heap, int heapSize, int x)
 {
     heap = (int*) realloc(heap, (heapSize+2)*sizeof(int));
@@ -39,6 +47,13 @@ void swap(int* heap, int i, int j)
     heap[i] = heap[i] - heap[j];
 }
 
+/**
+ * @brief deletes the first element of the heap
+ * 
+ * @param heap 
+ * @param heapSize 
+ * @return int* 
+ */
 int* minHeap_delete(int* heap, int heapSize)
 {
     int temp = heap[1];
