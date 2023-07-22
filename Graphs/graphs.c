@@ -1,64 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-typedef struct mygraph
+typedef struct Graph
 {
-    int numnodes;
-    bool** edges;
+    int num_nodes;
+    int** edges;
 } graph;
 
-graph* create_graph (int numnodes)
+graph* graph_build (int n)
 {
     graph* g = malloc (sizeof(graph));
+    g->num_nodes = n;
 
-    g->numnodes = numnodes;
-
-    g->edges = calloc (sizeof(bool*), g->numnodes);
-    for (int i = 0; i < g->numnodes; i++)
-        g->edges[i] = calloc (sizeof(bool), g->numnodes);
+    g->edges = malloc (n * sizeof(graph));
+    for (int i = 0; i < n; i++)
+        g->edges[i] = calloc (n, sizeof(graph));
 
     return g;
 }
 
-void print_graph (graph* g)
+graph* add_edge (graph* g, int from, int to)
 {
-    printf ("digraph\n{\n");
+    (g->edges)[from][to] = 1;
 
-    for (int from = 0; from < g->numnodes; from++)
-    {
-        for (int to = 0; to < g->numnodes; to++)
-        {
-            if (g->edges[from][to])
-                printf ("%d -> %d;\n", from, to);
-        }
-    }
-    printf ("}\n");
-}
-
-bool has_edge (graph* g, unsigned int from_node, unsigned int to_node)
-{
-    return (g->edges)[from_node][to_node];
-}
-
-bool add_edge (graph* g, unsigned int from_node, unsigned int to_node)
-{
-    if (has_edge (g, from_node, to_node))
-        return false;
-
-    (g->edges)[from_node][to_node] = true;
-    return true;
+    return g;
 }
 
 int main ()
 {
-    graph* g1 = create_graph (3);
+    graph* g = graph_build (3);
+    
+    g = add_edge (g, 1, 0);
 
-    print_graph (g1);
-
-    add_edge (g1, 2, 1);
-
-    print_graph (g1);
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            printf ("%d ", g->edges[i][j]);
+        }
+        printf ("\n");
+    }
 
     return 0;
 }
