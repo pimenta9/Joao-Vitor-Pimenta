@@ -1,3 +1,5 @@
+// beecrowd 1001
+
 import java.util.Scanner;
 
 public class bee1001 {
